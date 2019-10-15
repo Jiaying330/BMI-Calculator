@@ -1,0 +1,65 @@
+<html>
+<head>
+<style>
+.center{
+text-align: center;
+}
+body {
+background-color: rgba(255,0,0,0.2);
+}
+div {
+	
+    background-color: rgba(255,0,0,0.4);
+}
+</style>
+</head>
+<body>
+
+<h1>Your BMI Calculator</h1>
+<p> <b>BMI</b> stands for Body Mass Index. This is a measure of a person's body fat based on his or her weight and height. A high BMI may indicate high body fatness which can lead to serious health problems. </p>
+<br>
+<div>
+<br>
+<h4 class="center">Calculate your BMI</h4>
+<form class="center">
+<input type="radio" id="unit_m" name="unit" value="metric"checked>Metric (m, kg)<br>
+<input type="radio" id="unit_i" name="unit" value="imperial">Imperial (in, lbs)<br>
+</form>
+<br>
+<form class="center">
+Height:
+<input type="number" step="any" id="height" name="height"><br>
+Weight:
+<input type="number" step="any" id="weight"name="weight"><br>
+<br><br>
+
+<button onclick="calculateBMI()">Calculate</button>
+<br><br>
+</form>
+</div>
+<br>
+
+<script type="text/javascript">
+function calculateBMI(){
+var w = document.getElementById("weight").value;
+var h = document.getElementById("height").value;
+var bmi = 703*w/(h*h);
+if(document.getElementById("unit_m").checked){
+bmi = w/(h*h);
+}
+if(bmi>=18.5 && bmi<=25){
+alert("Congratulation! your BMI is: " + bmi + " you are within the normal range!");
+}
+else if(bmi<18.5 && bmi>=17.5){
+alert( "Your BMI is: " + bmi + ", according to the World Health Organization, your are underweight.");
+}
+else if(bmi<17.5){
+alert("Your BMI is: " + bmi + ", according to the World Health Organization, your are severely underweight.");
+}
+else{
+alert("Your BMI is " + bmi + ", according to the World Health Organization, you are overweight.");
+}
+}
+</script>
+</body>
+</html>
